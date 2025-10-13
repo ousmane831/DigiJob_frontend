@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import OffresSection from "@/components/OffresSection";
 import FormationsSection from "@/components/FormationsSection";
 import CommunauteSection from "@/components/CommunauteSection";
+import MarketplaceSection from "@/components/MarketplaceSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -14,6 +15,7 @@ const Index = () => {
         <OffresSection />
         <FormationsSection />
         <CommunauteSection />
+        <MarketplaceSection />
       </main>
       <Footer />
     </div>
