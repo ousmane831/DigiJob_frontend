@@ -1,17 +1,17 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import MarketplaceSection from "@/components/MarketplaceSection";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+const Marketplace = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main>
-        <Hero />
+      <main className="pt-16">
+        <MarketplaceSection />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Marketplace;

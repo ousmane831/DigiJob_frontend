@@ -1,17 +1,17 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import CommunauteSection from "@/components/CommunauteSection";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+const Communaute = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main>
-        <Hero />
+      <main className="pt-16">
+        <CommunauteSection />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Communaute;
