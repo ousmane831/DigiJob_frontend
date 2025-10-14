@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Briefcase, GraduationCap, Users, ShoppingBag } from "lucide-react";
+import { Menu, X, Briefcase, GraduationCap, Users, ShoppingBag, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -11,6 +11,7 @@ const Navbar = () => {
     { name: "Formations", href: "/formations", icon: GraduationCap },
     { name: "Communauté", href: "/communaute", icon: Users },
     { name: "Marketplace", href: "/marketplace", icon: ShoppingBag },
+    { name: "Ressources", href: "/ressources", icon: BookOpen },
   ];
 
   return (
