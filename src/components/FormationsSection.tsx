@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Clock, Users, Star, Play } from "lucide-react";
 import formationsBg from "@/assets/formations-bg.jpg";
+import { useToast } from "@/hooks/use-toast";
 
 const formations = [
   {
@@ -52,6 +53,15 @@ const formations = [
 ];
 
 const FormationsSection = () => {
+  const { toast } = useToast();
+
+  const handleCommencer = (formation: typeof formations[0]) => {
+    toast({
+      title: "Formation démarrée ! 📚",
+      description: `Bienvenue dans "${formation.titre}". Vous avez accès à ${formation.modules} modules de contenu.`,
+    });
+  };
+
   const getNiveauColor = (niveau: string) => {
     switch (niveau) {
       case "Débutant": return "bg-secondary/10 text-secondary";
@@ -125,7 +135,7 @@ const FormationsSection = () => {
               </CardContent>
               
               <CardFooter>
-                <Button className="w-full" variant="outline">
+                <Button className="w-full" variant="outline" onClick={() => handleCommencer(formation)}>
                   Commencer
                 </Button>
               </CardFooter>

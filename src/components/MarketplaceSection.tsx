@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ShoppingBag, ShoppingCart, Star, MapPin, Search, Store, TrendingUp, Heart } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import productArtisanat from "@/assets/product-artisanat.jpg";
 import productAgro from "@/assets/product-agro.jpg";
 import productTech from "@/assets/product-tech.jpg";
@@ -107,8 +108,16 @@ const produits = [
 const categories = ["Tout", "Artisanat", "Agriculture", "Technologie", "Beauté", "Mode", "Services"];
 
 const MarketplaceSection = () => {
+  const { toast } = useToast();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategorie, setSelectedCategorie] = useState("Tout");
+
+  const handleAcheter = (produit: typeof produits[0]) => {
+    toast({
+      title: "Ajouté au panier ! 🛒",
+      description: `"${produit.nom}" de ${produit.vendeur} a été ajouté à votre panier (${produit.prix}).`,
+    });
+  };
 
   const produitsFiltered = produits.filter(p => {
     const matchSearch = p.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -247,7 +256,7 @@ const MarketplaceSection = () => {
               </CardContent>
 
               <CardFooter className="pt-0 flex gap-2">
-                <Button className="flex-1 group-hover:bg-primary group-hover:text-white transition-colors">
+                <Button className="flex-1 group-hover:bg-primary group-hover:text-white transition-colors" onClick={() => handleAcheter(produit)}>
                   <ShoppingCart className="w-4 h-4 mr-2" />
                   Acheter
                 </Button>

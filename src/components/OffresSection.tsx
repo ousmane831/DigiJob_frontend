@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Briefcase, MapPin, Clock, DollarSign, Search, Filter } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const offres = [
   {
@@ -82,9 +83,17 @@ const offres = [
 ];
 
 const OffresSection = () => {
+  const { toast } = useToast();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedType, setSelectedType] = useState("all");
   const [selectedCategorie, setSelectedCategorie] = useState("all");
+
+  const handlePostuler = (offre: typeof offres[0]) => {
+    toast({
+      title: "Candidature envoyée ! 🎉",
+      description: `Votre candidature pour "${offre.titre}" chez ${offre.entreprise} a été transmise avec succès.`,
+    });
+  };
 
   const getTypeColor = (type: string) => {
     switch (type) {
@@ -193,7 +202,7 @@ const OffresSection = () => {
               </CardContent>
               
               <CardFooter>
-                <Button className="w-full">
+                <Button className="w-full" onClick={() => handlePostuler(offre)}>
                   <Briefcase className="w-4 h-4 mr-2" />
                   Postuler
                 </Button>
