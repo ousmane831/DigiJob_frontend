@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Briefcase, GraduationCap, Users, ShoppingBag, BookOpen } from "lucide-react";
+import { Menu, X, Home, Briefcase, GraduationCap, Users, ShoppingBag, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
+    { name: "Accueil", href: "/", icon: Home },
     { name: "Offres", href: "/offres", icon: Briefcase },
     { name: "Formations", href: "/formations", icon: GraduationCap },
     { name: "Communauté", href: "/communaute", icon: Users },
