@@ -1,80 +1,87 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Search, Sparkles } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Briefcase, GraduationCap, TrendingUp, Users, MapPin, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
-const Hero = () => {
+const Index = () => {
+  const features = [
+    {
+      icon: Briefcase,
+      title: "Opportunités d'emploi",
+      description: "Accédez à des centaines d'offres d'emploi, missions freelance et micro-tâches adaptées à votre profil."
+    },
+    {
+      icon: GraduationCap,
+      title: "Formations en ligne",
+      description: "Développez vos compétences avec des cours en ligne, tutoriels vidéo et obtenez des certifications."
+    },
+    {
+      icon: TrendingUp,
+      title: "Suivi de progression",
+      description: "Suivez vos candidatures, vos gains et votre évolution professionnelle en temps réel."
+    },
+    {
+      icon: Users,
+      title: "Communauté active",
+      description: "Échangez avec d'autres professionnels, partagez des conseils et des opportunités."
+    },
+    {
+      icon: MapPin,
+      title: "Opportunités locales",
+      description: "Trouvez des offres dans votre région et participez au développement de votre communauté."
+    },
+    {
+      icon: Award,
+      title: "Développement personnel",
+      description: "Construisez votre CV, préparez vos entretiens avec l'aide de notre assistant IA."
+    }
+  ];
+
+  
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="DigiJob - Opportunités professionnelles en Afrique"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-secondary/70" />
-      </div>
-
-      {/* Content */}
-      <div className="container mx-auto px-4 z-10">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-in fade-in slide-in-from-top-4 duration-700">
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">Nouvelle plateforme pour l'Afrique rurale</span>
-          </div>
-
-          {/* Main Title */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-in fade-in slide-in-from-top-8 duration-700 delay-150">
-            Votre avenir professionnel
-            <span className="block bg-gradient-to-r from-secondary-glow to-white bg-clip-text text-transparent">
-              commence ici
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl lg:text-2xl mb-10 text-white/90 max-w-2xl mx-auto animate-in fade-in slide-in-from-top-12 duration-700 delay-300">
-            Trouvez des emplois, développez vos compétences et rejoignez une communauté de professionnels en Afrique.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-in fade-in slide-in-from-top-16 duration-700 delay-500">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-lg text-lg px-8 py-6">
-              Commencer gratuitement
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-sm text-lg px-8 py-6"
-            >
-              <Search className="mr-2 w-5 h-5" />
-              Explorer les offres
-            </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-white/20 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold mb-2">500+</div>
-              <div className="text-sm md:text-base text-white/80">Offres d'emploi</div>
+    <div className="min-h-screen">
+     
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[var(--gradient-hero)]" />
+        <div className="container relative mx-auto px-4 py-20 md:py-32">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                Construisez votre avenir professionnel
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
+                DigiJob forme, accompagne et connecte les jeunes et les femmes à l’économie numérique, 
+                missions freelance et formations professionnelles. Développez vos compétences 
+                et atteignez vos objectifs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/auth">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Commencer gratuitement
+                  </Button>
+                </Link>
+                <Link to="/offres">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                    Voir les offres
+                  </Button>
+                </Link>
+              </div>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold mb-2">50+</div>
-              <div className="text-sm md:text-base text-white/80">Formations</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold mb-2">2000+</div>
-              <div className="text-sm md:text-base text-white/80">Membres actifs</div>
+            <div className="relative">
+              <img 
+                src={heroImage} 
+                alt="Jeunes professionnels africains utilisant la technologie" 
+                className="rounded-2xl shadow-[var(--shadow-strong)] w-full"
+              />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
-    </section>
+    </div>
   );
 };
 
-export default Hero;
+export default Index;

@@ -84,35 +84,7 @@ const Ressources = () => {
     }
   ];
 
-  const successStories = [
-    {
-      id: 1,
-      nom: "Aminata Diallo",
-      titre: "Fondatrice de TechAfrique",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format",
-      histoire: "De développeuse junior à CEO d'une startup valorisée à 2M€",
-      secteur: "Technologie",
-      impact: "200+ emplois créés"
-    },
-    {
-      id: 2,
-      nom: "Kwame Mensah",
-      titre: "Entrepreneur Social",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format",
-      histoire: "A révolutionné l'agriculture avec une plateforme de connexion fermiers-acheteurs",
-      secteur: "AgriTech",
-      impact: "5000+ agriculteurs aidés"
-    },
-    {
-      id: 3,
-      nom: "Fatima Hassan",
-      titre: "Designer UX/UI",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format",
-      histoire: "Passée de freelance à dirigeante d'une agence digitale primée",
-      secteur: "Design",
-      impact: "100+ projets réalisés"
-    }
-  ];
+  
 
   const getTypeIcon = (type: string) => {
     switch (type) {
@@ -251,63 +223,6 @@ const Ressources = () => {
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Success Stories */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Star className="w-8 h-8 text-secondary" />
-              <div>
-                <h2 className="text-3xl font-bold mb-2">Success Stories</h2>
-                <p className="text-muted-foreground">Laissez-vous inspirer par ces parcours extraordinaires</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {successStories.map((story) => (
-                <Card key={story.id} className="overflow-hidden hover:shadow-lg transition-shadow group">
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={story.image}
-                      alt={story.nom}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-xl font-bold text-foreground mb-1">{story.nom}</h3>
-                      <p className="text-sm text-muted-foreground">{story.titre}</p>
-                    </div>
-                  </div>
-                  <CardContent className="pt-6">
-                    <Badge className="mb-3">{story.secteur}</Badge>
-                    <p className="text-sm mb-4">{story.histoire}</p>
-                    <div className="flex items-center gap-2 text-sm font-medium text-secondary">
-                      <Trophy className="w-4 h-4" />
-                      <span>{story.impact}</span>
-                    </div>
-                    <Button variant="outline" className="w-full mt-4">Lire l'histoire complète</Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Vous avez une histoire à partager ?</CardTitle>
-                  <CardDescription>
-                    Inspirez la communauté en partageant votre parcours et vos réussites
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button size="lg" className="bg-gradient-to-r from-primary to-secondary">
-                    Partager mon histoire
-                  </Button>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </section>

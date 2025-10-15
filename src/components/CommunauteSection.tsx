@@ -7,25 +7,25 @@ import { MessageCircle, Video, Phone, Users, UserCheck, Briefcase, Sparkles, Sho
 const mentors = [
   {
     id: 1,
-    nom: "Dr. Aminata Touré",
+    nom: "Dr. Astou DIAKHATE",
     specialite: "Entrepreneuriat Digital",
-    experience: "15 ans",
+    experience: "12 ans",
     domaines: ["E-commerce", "Marketing Digital"],
     disponible: true
   },
   {
     id: 2,
-    nom: "Moussa Kandé",
+    nom: "Ousmane DIOUF",
     specialite: "Développement Web",
-    experience: "10 ans",
+    experience: "8 ans",
     domaines: ["Tech", "Innovation"],
     disponible: true
   },
   {
     id: 3,
-    nom: "Fatoumata Diop",
+    nom: "Aissatou DIOP",
     specialite: "Artisanat & Design",
-    experience: "8 ans",
+    experience: "10 ans",
     domaines: ["Artisanat", "Beauté"],
     disponible: false
   }
