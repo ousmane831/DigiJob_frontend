@@ -8,109 +8,105 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 217 91% 70%;
+  /* === Couleurs DigiJob === */
+  --primary: 223 74% 19%; /* Bleu foncé principal (#0A1D56) */
+  --primary-foreground: 0 0% 100%; /* Blanc */
+  --primary-glow: 217 91% 60%; /* Bleu clair effet glow (#3A86FF) */
 
-    --secondary: 142 76% 36%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 142 76% 46%;
+  --secondary: 217 91% 65%; /* Bleu ciel secondaire (#4F9BFF) */
+  --secondary-foreground: 0 0% 100%;
+  --secondary-glow: 217 91% 70%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 20% 45%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 100%;
+  --accent: 220 30% 96%; /* Bleu très clair pour hover */
+  --accent-foreground: 223 74% 19%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 217 91% 60%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 217 91% 60%;
 
-    --radius: 0.75rem;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(142 76% 36%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 50%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
-    
-    /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(217 91% 60% / 0.1);
-    --shadow-md: 0 4px 16px hsl(217 91% 60% / 0.15);
-    --shadow-lg: 0 8px 32px hsl(217 91% 60% / 0.2);
-    
-    /* Transitions */
-    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+  /* === Gradients DigiJob === */
+  --gradient-primary: linear-gradient(135deg, hsl(223 74% 19%), hsl(217 91% 60%));
+  --gradient-hero: linear-gradient(135deg, hsl(223 74% 19%), hsl(217 91% 60%));
+  --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+  /* === Ombres et transitions === */
+  --shadow-sm: 0 2px 8px hsl(223 74% 19% / 0.1);
+  --shadow-md: 0 4px 16px hsl(223 74% 19% / 0.15);
+  --shadow-lg: 0 8px 32px hsl(223 74% 19% / 0.2);
 
-    --sidebar-primary: 240 5.9% 10%;
+  --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+  /* === Sidebar === */
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 223 74% 19%;
+  --sidebar-primary: 223 74% 19%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 30% 96%;
+  --sidebar-accent-foreground: 223 74% 19%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217 91% 60%;
+}
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  --background: 223 74% 10%;
+  --foreground: 0 0% 100%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+  --card: 223 74% 12%;
+  --card-foreground: 0 0% 100%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+  --popover: 223 74% 12%;
+  --popover-foreground: 0 0% 100%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 217 91% 70%;
+  --primary: 217 91% 60%; /* Bleu clair en dark mode */
+  --primary-foreground: 0 0% 100%;
+  --primary-glow: 217 91% 70%;
 
-    --secondary: 142 76% 36%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 142 76% 46%;
+  --secondary: 223 74% 19%;
+  --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+  --muted: 223 74% 15%;
+  --muted-foreground: 0 0% 90%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 100%;
+  --accent: 223 74% 18%;
+  --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+  --destructive: 0 62% 40%;
+  --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 217 91% 60%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  --border: 223 74% 25%;
+  --input: 223 74% 25%;
+  --ring: 217 91% 60%;
+
+  /* Sidebar en mode sombre */
+  --sidebar-background: 223 74% 12%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 217 91% 60%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 223 74% 15%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 223 74% 18%;
+  --sidebar-ring: 217 91% 60%;
 }
+
 
 @layer base {
   * {
@@ -120,4 +116,5 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Briefcase, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
-
+import logo from "../assets/logo_digijob.png"
 const Footer = () => {
   const footerLinks = {
     "Plateforme": [
@@ -36,14 +36,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <Briefcase className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                DigiJob
-              </span>
-            </Link>
+            <Link to="/" className="flex items-center space-x-2">
+        <img 
+  src={logo} 
+  alt="DigiJob Logo" 
+  className="w-[120px] h-[120px] object-contain rounded-lg" 
+/>
+      </Link>
             <p className="text-muted-foreground mb-4 max-w-sm">
               La plateforme qui connecte talents et opportunités en Afrique rurale. 
               Développez vos compétences, trouvez des missions et construisez votre avenir.

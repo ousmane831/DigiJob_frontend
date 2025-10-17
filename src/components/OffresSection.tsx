@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -18,7 +21,7 @@ const offres = [
     duree: "Temps plein",
     description: "Recherche assistant commercial dynamique pour développer notre clientèle locale.",
     categorie: "Commerce",
-    date: "Il y a 2 jours"
+    date: "Il y a 2 jours",
   },
   {
     id: 2,
@@ -30,7 +33,7 @@ const offres = [
     duree: "2-3 semaines",
     description: "Création de site vitrine pour PME locale. Maîtrise de WordPress requis.",
     categorie: "Tech",
-    date: "Il y a 1 jour"
+    date: "Il y a 1 jour",
   },
   {
     id: 3,
@@ -42,7 +45,7 @@ const offres = [
     duree: "6 mois",
     description: "Gestion des réseaux sociaux et création de contenu pour entreprise agricole.",
     categorie: "Marketing",
-    date: "Il y a 3 jours"
+    date: "Il y a 3 jours",
   },
   {
     id: 4,
@@ -54,7 +57,7 @@ const offres = [
     duree: "Mission ponctuelle",
     description: "Traduction de documents juridiques et commerciaux.",
     categorie: "Services",
-    date: "Il y a 5 jours"
+    date: "Il y a 5 jours",
   },
   {
     id: 5,
@@ -66,7 +69,7 @@ const offres = [
     duree: "3 jours",
     description: "Animation de formation sur les réseaux sociaux et le marketing digital.",
     categorie: "Formation",
-    date: "Il y a 1 semaine"
+    date: "Il y a 1 semaine",
   },
   {
     id: 6,
@@ -78,8 +81,8 @@ const offres = [
     duree: "4 mois",
     description: "Création d'identités visuelles et supports de communication pour clients variés.",
     categorie: "Design",
-    date: "Il y a 4 jours"
-  }
+    date: "Il y a 4 jours",
+  },
 ];
 
 const OffresSection = () => {
@@ -105,37 +108,37 @@ const OffresSection = () => {
   };
 
   return (
-    <section id="offres" className="py-20 bg-muted/30">
+    <section id="offres" className="py-16 md:py-20 bg-gradient-to-br from-muted/30 to-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Offres & Missions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Découvrez des opportunités d'emploi et missions freelance adaptées à vos compétences
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto italic">
+            Découvrez des opportunités d'emploi et de missions freelance adaptées à vos compétences 🚀
           </p>
         </div>
 
-        {/* Filters */}
+        {/* Filtres */}
         <div className="max-w-5xl mx-auto mb-12">
-          <div className="bg-card rounded-xl shadow-md p-6 space-y-4">
+          <div className="bg-card rounded-xl shadow-md border border-primary/10 p-6 space-y-4 hover:shadow-lg transition-all">
             <div className="flex flex-col md:flex-row gap-4">
-              {/* Search */}
+              {/* Recherche */}
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
-                  placeholder="Rechercher une offre, entreprise..."
-                  className="pl-10"
+                  placeholder="Rechercher une offre ou une entreprise..."
+                  className="pl-10 focus:border-primary focus:ring-primary"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
 
-              {/* Type Filter */}
+              {/* Type */}
               <Select value={selectedType} onValueChange={setSelectedType}>
                 <SelectTrigger className="w-full md:w-[180px]">
-                  <Filter className="w-4 h-4 mr-2" />
+                  <Filter className="w-4 h-4 mr-2 text-primary" />
                   <SelectValue placeholder="Type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -146,7 +149,7 @@ const OffresSection = () => {
                 </SelectContent>
               </Select>
 
-              {/* Category Filter */}
+              {/* Catégorie */}
               <Select value={selectedCategorie} onValueChange={setSelectedCategorie}>
                 <SelectTrigger className="w-full md:w-[180px]">
                   <SelectValue placeholder="Catégorie" />
@@ -165,55 +168,69 @@ const OffresSection = () => {
           </div>
         </div>
 
-        {/* Offres Grid */}
+        {/* Offres */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {offres.map((offre) => (
-            <Card key={offre.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <Badge className={getTypeColor(offre.type)}>{offre.type}</Badge>
-                  <span className="text-xs text-muted-foreground">{offre.date}</span>
-                </div>
-                <CardTitle className="text-xl">{offre.titre}</CardTitle>
-                <CardDescription className="text-base font-medium text-foreground/70">
-                  {offre.entreprise}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="space-y-3">
-                <p className="text-sm text-muted-foreground line-clamp-2">
-                  {offre.description}
-                </p>
-                
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center text-muted-foreground">
-                    <MapPin className="w-4 h-4 mr-2 text-primary" />
-                    {offre.localisation}
+          {offres.map((offre, i) => (
+            <motion.div
+              key={offre.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+            >
+              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-primary/10 bg-card/80 backdrop-blur-sm">
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-2">
+                    <Badge className={`${getTypeColor(offre.type)} animate-pulse`}>{offre.type}</Badge>
+                    <span className="text-xs text-muted-foreground">{offre.date}</span>
                   </div>
-                  <div className="flex items-center text-muted-foreground">
-                    <Clock className="w-4 h-4 mr-2 text-secondary" />
-                    {offre.duree}
+                  <CardTitle className="text-xl">{offre.titre}</CardTitle>
+                  <CardDescription className="text-base font-medium text-foreground/70">
+                    {offre.entreprise}
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent className="space-y-3">
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {offre.description}
+                  </p>
+
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center text-muted-foreground">
+                      <MapPin className="w-4 h-4 mr-2 text-primary" />
+                      {offre.localisation}
+                    </div>
+                    <div className="flex items-center text-muted-foreground">
+                      <Clock className="w-4 h-4 mr-2 text-secondary" />
+                      {offre.duree}
+                    </div>
+                    <div className="flex items-center font-semibold text-primary">
+                      <DollarSign className="w-4 h-4 mr-2" />
+                      {offre.remuneration}
+                    </div>
                   </div>
-                  <div className="flex items-center font-semibold text-primary">
-                    <DollarSign className="w-4 h-4 mr-2" />
-                    {offre.remuneration}
-                  </div>
-                </div>
-              </CardContent>
-              
-              <CardFooter>
-                <Button className="w-full" onClick={() => handlePostuler(offre)}>
-                  <Briefcase className="w-4 h-4 mr-2" />
-                  Postuler
-                </Button>
-              </CardFooter>
-            </Card>
+                </CardContent>
+
+                <CardFooter>
+                  <Button
+                    className="w-full bg-primary hover:bg-primary/90 text-white"
+                    onClick={() => handlePostuler(offre)}
+                  >
+                    <Briefcase className="w-4 h-4 mr-2" />
+                    Postuler
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        {/* Load More */}
+        {/* Voir plus */}
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-primary text-primary hover:bg-primary hover:text-white transition-all"
+          >
             Voir plus d'offres
           </Button>
         </div>

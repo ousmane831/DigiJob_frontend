@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,7 +18,7 @@ const formations = [
     modules: 12,
     participants: 450,
     rating: 4.8,
-    categorie: "Marketing"
+    categorie: "Marketing",
   },
   {
     id: 2,
@@ -26,7 +29,7 @@ const formations = [
     modules: 18,
     participants: 320,
     rating: 4.9,
-    categorie: "E-commerce"
+    categorie: "E-commerce",
   },
   {
     id: 3,
@@ -37,7 +40,7 @@ const formations = [
     modules: 24,
     participants: 580,
     rating: 4.7,
-    categorie: "Tech"
+    categorie: "Tech",
   },
   {
     id: 4,
@@ -48,8 +51,8 @@ const formations = [
     modules: 10,
     participants: 390,
     rating: 4.6,
-    categorie: "Marketing"
-  }
+    categorie: "Marketing",
+  },
 ];
 
 const FormationsSection = () => {
@@ -64,21 +67,25 @@ const FormationsSection = () => {
 
   const getNiveauColor = (niveau: string) => {
     switch (niveau) {
-      case "Débutant": return "bg-secondary/10 text-secondary";
-      case "Intermédiaire": return "bg-primary/10 text-primary";
-      case "Avancé": return "bg-accent/10 text-accent";
-      default: return "bg-muted text-muted-foreground";
+      case "Débutant":
+        return "bg-secondary/10 text-secondary";
+      case "Intermédiaire":
+        return "bg-primary/10 text-primary";
+      case "Avancé":
+        return "bg-accent/10 text-accent";
+      default:
+        return "bg-muted text-muted-foreground";
     }
   };
 
   return (
     <section id="formations" className="py-20 relative overflow-hidden">
-      {/* Background */}
+      {/* Arrière-plan */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={formationsBg} 
+        <img
+          src={formationsBg}
           alt="Formations DigiJob"
-          className="w-full h-full object-cover opacity-10"
+          className="w-full h-full object-cover opacity-15"
         />
       </div>
 
@@ -89,73 +96,96 @@ const FormationsSection = () => {
             <GraduationCap className="w-5 h-5 text-secondary" />
             <span className="text-sm font-semibold text-secondary">Formations en ligne</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Développez vos Compétences
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Accédez à des formations de qualité pour booster votre carrière professionnelle
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto italic">
+            Accédez à des formations de qualité pour booster votre carrière professionnelle 🚀
           </p>
         </div>
 
-        {/* Formations Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {formations.map((formation) => (
-            <Card key={formation.id} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-card/80 backdrop-blur-sm">
-              <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge className={getNiveauColor(formation.niveau)}>
-                    {formation.niveau}
-                  </Badge>
-                  <div className="flex items-center text-sm font-medium text-amber-500">
-                    <Star className="w-4 h-4 mr-1 fill-current" />
-                    {formation.rating}
+        {/* Grille des formations */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {formations.map((formation, i) => (
+            <motion.div
+              key={formation.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+            >
+              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-card/80 backdrop-blur-sm border border-primary/10">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge className={`${getNiveauColor(formation.niveau)} animate-pulse`}>
+                      {formation.niveau}
+                    </Badge>
+                    <div className="flex items-center text-sm font-medium text-amber-500">
+                      <Star className="w-4 h-4 mr-1 fill-current" />
+                      {formation.rating}
+                    </div>
                   </div>
-                </div>
-                <CardTitle className="text-lg leading-tight">{formation.titre}</CardTitle>
-                <CardDescription className="line-clamp-2">
-                  {formation.description}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="space-y-3">
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <div className="flex items-center">
-                    <Clock className="w-4 h-4 mr-1 text-primary" />
-                    {formation.duree}
+                  <CardTitle className="text-lg leading-tight">{formation.titre}</CardTitle>
+                  <CardDescription className="line-clamp-2">
+                    {formation.description}
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent className="space-y-3">
+                  <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="flex items-center">
+                      <Clock className="w-4 h-4 mr-1 text-primary" />
+                      {formation.duree}
+                    </div>
+                    <div className="flex items-center">
+                      <Play className="w-4 h-4 mr-1 text-secondary" />
+                      {formation.modules} modules
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <Play className="w-4 h-4 mr-1 text-secondary" />
-                    {formation.modules} modules
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <Users className="w-4 h-4 mr-1 text-accent" />
+                    {formation.participants} participants
                   </div>
-                </div>
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <Users className="w-4 h-4 mr-1 text-accent" />
-                  {formation.participants} participants
-                </div>
-              </CardContent>
-              
-              <CardFooter>
-                <Button className="w-full" variant="outline" onClick={() => handleCommencer(formation)}>
-                  Commencer
-                </Button>
-              </CardFooter>
-            </Card>
+                </CardContent>
+
+                <CardFooter>
+                  <Button
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all"
+                    variant="outline"
+                    aria-label={`Commencer la formation ${formation.titre}`}
+                    onClick={() => handleCommencer(formation)}
+                  >
+                    Commencer
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        {/* CTA Banner */}
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center text-white shadow-2xl">
+        {/* Bannière CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center text-white shadow-2xl overflow-hidden"
+        >
+          {/* Halo lumineux */}
+          <div className="absolute inset-0 bg-white/10 blur-3xl opacity-20"></div>
+
           <GraduationCap className="w-16 h-16 mx-auto mb-4 opacity-90" />
           <h3 className="text-3xl font-bold mb-4">
             Obtenez votre Certificat Professionnel
           </h3>
           <p className="text-lg mb-6 text-white/90">
-            Terminez une formation et recevez un certificat reconnu pour valoriser vos compétences
+            Terminez une formation et recevez un certificat reconnu pour valoriser vos compétences.
           </p>
-          <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+          <Button
+            size="lg"
+            className="bg-white text-primary font-semibold hover:bg-white/90 transition"
+          >
             Parcourir toutes les formations
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
