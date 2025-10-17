@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Home, Briefcase, GraduationCap, Users, ShoppingBag, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import logo from "../assets/logo_digijob.png"
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,14 +20,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <Briefcase className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              DigiJob
-            </span>
-          </Link>
+         <Link to="/" className="flex items-center space-x-2">
+        <img 
+  src={logo} 
+  alt="DigiJob Logo" 
+  className="w-[160px] h-[160px] object-contain rounded-lg" 
+/>
+      </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
